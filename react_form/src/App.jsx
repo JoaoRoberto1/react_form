@@ -4,30 +4,71 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+
+      <main className="form-pessoa">
+
+        <h2>Cadastro de Pessoa</h2>
+        <form className="row g-3">
+          <div className="col-md-6">
+            <label htmlFor="nomeCompleto" className="form-label">Nome Completo</label>
+            <input type="text" className="form-control" id="nomeCompleto" />
+          </div>
+
+          <div className="col-md-6">
+            <label htmlFor="nomedaMae" className="form-label">Nome da Mãe</label>
+            <input type="text" className="form-control" id="nomedaMae" />
+          </div>
+
+          <div className="col-md-4">
+            <label for="inputAddress" className="form-label">CEP</label>
+            <input type="text" className="form-control" id="Cep" placeholder="CEP" />
+          </div>
+
+          <div className="col-md-8">
+            <label for="inputAddress" className="form-label">Endereço</label>
+            <input type="text" className="form-control" id="Endereço" placeholder="Endereço" />
+          </div>
+
+          <div className="col-md-1">
+            <label for="inputAddress" className="form-label">Número</label>
+            <input type="text" className="form-control" id="Número" placeholder="Número" />
+          </div>
+
+          <div className="col-md-11">
+            <label for="inputAddress" className="form-label">Complemento</label>
+            <input type="text" className="form-control" id="Complemento" placeholder="Complemento" />
+          </div>
+
+          <div className="col-md-4">
+            <label for="inputAddress" className="form-label">Bairro</label>
+            <input type="text" className="form-control" id="Bairro" placeholder="Bairro" />
+          </div>
+
+          <div className="col-md-4">
+            <label for="inputAddress" className="form-label">Estado</label>
+            <select id="inputState" class="form-select">
+              <option selected>Escolha...</option>
+              <option>...</option>
+            </select>
+          </div>
+
+          <div className="col-md-4">
+            <label for="inputAddress" className="form-label">Cidade</label>
+            <select id="inputState" class="form-select">
+              <option selected>Escolha...</option>
+              <option>...</option>
+            </select>
+        </div>
+
+
+
+
+      </form>
+
+    </main >
+
     </>
   )
 }

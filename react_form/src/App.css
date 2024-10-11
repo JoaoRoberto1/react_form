@@ -1,9 +1,16 @@
 #root {
-  max-width: 1280px;
+  max-width: 80%;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
 }
+
+h2 {
+  color: #000000;
+  margin-bottom: 2em;
+  margin-top: 1em;
+}
+
 
 .logo {
   height: 6em;
