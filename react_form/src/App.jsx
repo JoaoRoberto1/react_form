@@ -2,12 +2,13 @@ import './App.css'
 import Button from './components/Button/Button'
 import { Input } from './components/input/Input'
 import { InputSelect } from './components/InputSelect/InputSelect'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 function App() {
-
+  
   const [nomeCompleto, setNomeCompleto] = useState('')
   const [nomeMae, setnomeMae] = useState('')
   const [date, setDate] = useState('')
+  // const inputRef = useRef()
 
   const enviar = e => {
     e.preventDefault()
@@ -72,6 +73,7 @@ function App() {
             label='Número'
             id='numero'
             inputSize={1}
+            //ref={inputRef}
           />
 
           <Input 
