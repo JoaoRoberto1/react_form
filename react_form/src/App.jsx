@@ -1,22 +1,26 @@
+import { useRef, useState } from 'react';
 import './App.css'
-import Button from './components/Button/Button'
+import { Button } from './components/button/Button'
 import { Input } from './components/input/Input'
-import { InputSelect } from './components/InputSelect/InputSelect'
-import { useRef, useState } from 'react'
+import { Select } from './components/input/Select'
+
 function App() {
-  
-  const [nomeCompleto, setNomeCompleto] = useState('')
-  const [nomeMae, setnomeMae] = useState('')
-  const [date, setDate] = useState('')
-  // const inputRef = useRef()
+  const inputRef = useRef(null);
+  const [formData, setFormData] = useState({});
+
+
+  const handleChange = (e) => {
+    /* formData.nomeCompleto = 12
+    formData['nomeMae'] */
+
+    console.log(e.target.id, e.target.value);
+    setFormData({ ...formData, [e.target.id]: e.target.value })
+  }
 
   const enviar = e => {
-    e.preventDefault()
-
-    console.log('form', nomeCompleto);
-    console.log('form', nomeMae);
-    console.log('form', date);
-    
+    //evita que a tela carregue depois de clicar no botão submit do form
+    e.preventDefault();
+    console.log('Form:', formData);
   }
 
   return (
@@ -25,156 +29,94 @@ function App() {
         <h2>Cadastro de Pessoa</h2>
 
         <form className='row g-3' onSubmit={enviar}>
-
           <Input
             label='Nome Completo'
             id='nomeCompleto'
-            handleChange={(e) => setNomeCompleto(e.target.value)}
+            handleChange={handleChange}
           />
 
           <Input
             label='Nome Mãe'
             id='nomeMae'
-            handleChange={e => setnomeMae(e.target.value)}
-          />
-          <Input 
-            inputSize={2}
-            label='Data de Nascimento'
-            id='dataNascimento'
-            type='date'
-            handleChange={e => setDate(e.target.value)}
+            handleChange={handleChange}
           />
 
-          <Input 
+          <Input
+            inputSize={2}
+            label='Data Nascimento'
+            id='dataNascimento'
+            type='date'
+            handleChange={handleChange}
+          />
+
+          <Input
             inputSize={5}
             label='Email'
             id='email'
+            type='email'
+            handleChange={handleChange}
           />
 
-          <Input 
+          <Input
             inputSize={5}
             label='Senha'
             id='senha'
             type='password'
+            handleChange={handleChange}
           />
 
-          <Input 
+          <Input
+            inputSize={4}
             label='CEP'
             id='cep'
-            inputSize={4}
+            type='text'
+            handleChange={handleChange}
           />
-          <Input 
+
+          <Input
+            inputSize={8}
             label='Endereço'
             id='endereco'
-            inputSize={8}
+            handleChange={handleChange}
           />
 
-          <Input 
+          <Input
+            inputSize={1}
             label='Número'
             id='numero'
-            inputSize={1}
+            type='number'
             //ref={inputRef}
+            handleChange={handleChange}
           />
 
-          <Input 
+          <Input
+            inputSize={11}
             label='Complemento'
             id='complemento'
-            inputSize={11}
+            handleChange={handleChange}
           />
-          <Input 
+
+          <Input
+            inputSize={4}
             label='Bairro'
             id='bairro'
-            inputSize={4}
+            handleChange={handleChange}
           />
 
-          <InputSelect
+          <Select
             label='Estado'
             id='estado'
+            handleChange={handleChange}
           />
 
-          <InputSelect
+          <Select
             label='Cidade'
             id='cidade'
+            handleChange={handleChange}
           />
 
-          <Button 
-            ButtonColor='btn btn-primary'
-            ButtonName='Enviar'
-            ButtonType='submit'
-          />
-          <Button 
-            ButtonColor='btn btn-danger'
-            ButtonName='Limpar'
-            ButtonType='reset'
-          />
-          
-
-          {/* <div className="col-md-6">
-            <label htmlFor="nomeCompleto" className="form-label">Nome Completo</label>
-            <input type="text" className="form-control" id="nomeCompleto" />
-          </div> */}
-
-          {/* <div className="col-md-6">
-            <label htmlFor="nomeMae" className="form-label">Nome Mãe</label>
-            <input type="text" className="form-control" id="nomeMae" />
-          </div> */}
-
-          {/* <div className="col-md-2">
-            <label htmlFor="dataNascimento" className="form-label">Data Nascimento</label>
-            <input type="date" className="form-control" id="dataNascimento" />
-          </div> */}
-
-          {/* <div className="col-md-5">
-            <label htmlFor="email" className="form-label">Email</label>
-            <input type="email" className="form-control" id="email" />
-          </div> */}
-
-          {/* <div className="col-md-5">
-            <label htmlFor="senha" className="form-label">Senha</label>
-            <input type="password" className="form-control" id="senha" />
-          </div> */}
-
-          {/* <div className="col-md-4">
-            <label htmlFor="cep" className="form-label">CEP</label>
-            <input type="text" className="form-control" id="cep" />
-          </div> */}
-
-          {/* <div className="col-md-8">
-            <label htmlFor="endereco" className="form-label">Endereço</label>
-            <input type="text" className="form-control" id="endereco" />
-          </div> */}
-
-          {/* <div className="col-md-1">
-            <label htmlFor="numero" className="form-label">Número</label>
-            <input type="text" className="form-control" id="numero" />
-          </div> */}
-
-          {/* <div className="col-md-11">
-            <label htmlFor="complemento" className="form-label">Complemento</label>
-            <input type="text" className="form-control" id="complemento" />
-          </div> */}
-
-          {/* <div className="col-md-4">
-            <label htmlFor="bairro" className="form-label">Bairro</label>
-            <input type="text" className="form-control" id="bairro" />
-          </div> */}
-
-          {/* <div className="col-md-4">
-            <label htmlFor="estado" className="form-label">Estado</label>
-            <select id="estado" class="form-select">
-              <option selected>Escolha...</option>
-              <option>...</option>
-            </select>
-          </div>
-
-          <div className="col-md-4">
-            <label htmlFor="cidade" className="form-label">Cidade</label>
-            <select id="cidade" class="form-select">
-              <option selected>Escolha...</option>
-              <option>...</option>
-            </select>
-          </div> */}
-
+          <Button type='submit' label='Salvar' />
+          <Button type='reset' variant='light' label='Limpar' />
         </form>
       </main>
     </>
